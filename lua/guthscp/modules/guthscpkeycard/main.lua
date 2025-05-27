@@ -162,10 +162,10 @@ function MODULE:init()
 		guthscp.data.move_file( path, self.path )
 	end
 
-	--  warn for old version
 	timer.Simple( 0, function()
+		--  warn for old version
 		if GuthSCP and GuthSCP.registerKeycardSWEP then
-			local text = "The old version of this addon is currently running on this server. Please, delete the '[SCP] Keycard System by Guthen' addon to avoid any possible conflicts."
+			local text = "The old version of this addon is currently running on this server. Please, remove the '[SCP] Keycard System by Guthen' addon to avoid any possible conflicts."
 			self:add_error( text )
 			self:error( text )
 		end
