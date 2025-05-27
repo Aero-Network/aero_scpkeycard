@@ -172,5 +172,17 @@ function MODULE:init()
 	end )
 end
 
+hook.Add( "guthscp.config:applied", "guthscpkeycard:check_issues", function( id, config )
+	if id ~= MODULE.id then return end
+
+	if not config.keycard_available_classes["class C_BaseToggle"] then
+		local text = "Since the update of March 2025, you need to add the 'class C_BaseToggle' entity class to the 'Keycard Available Classes' configuration to fix the missing HUD when looking at accreditated buttons. This warning will only removes itself at the next server boot if the configuration has been fixed."
+		MODULE:add_error( text )
+		MODULE:error( text )
+
+		hook.Remove( "guthscp.config:applied", "guthscpkeycard:check_issues" )
+	end
+end )
+
 guthscp.module.hot_reload( "guthscpkeycard" )
 return MODULE
