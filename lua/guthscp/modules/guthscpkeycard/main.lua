@@ -57,6 +57,7 @@ MODULE.menu = {
 				default = {
 					["func_button"] = true,
 					["class C_BaseEntity"] = true,
+					["class C_BaseToggle"] = true,
 					["func_rot_button"] = true,
 				},
 				is_set = true,
