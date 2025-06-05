@@ -42,6 +42,8 @@ SWEP.GuthSCPLVL = 0
 
 SWEP.HolstingTime = 0
 
+
+
 --  swep construction kit
 local model = "models/props/scp/keycard/keycard.mdl"
 SWEP.VElements = {
@@ -87,7 +89,7 @@ SWEP.ViewModelBoneMods = {
 --  main functions
 function SWEP:PrimaryAttack()
 	if CLIENT then return end
-
+	self.Owner:GetViewModel():SendViewModelMatchingSequence(self.Owner:GetViewModel():LookupSequence("insert"))
 	self:SetNextPrimaryFire( CurTime() + guthscp.configs.guthscpkeycard.use_cooldown )
 
 	--  interact with entities (+use)
@@ -125,6 +127,7 @@ end
 function SWEP:Deploy()
 	self:SetHoldType( self.HoldType )
 	self:SendWeaponAnim( ACT_VM_DRAW )
+	self.Owner:GetViewModel():SendViewModelMatchingSequence(self.Owner:GetViewModel():LookupSequence("draw"))
 end
 
 function SWEP:Holster( new_weapon )

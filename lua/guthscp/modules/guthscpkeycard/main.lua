@@ -69,14 +69,14 @@ MODULE.menu = {
 				name = "Accepted",
 				id = "translation_accepted",
 				desc = "Text shown to the player whose access was accepted",
-				default = "The doors are moving!",
+				default = "Die Türen bewegen sich!",
 			},
 			{
 				type = "String",
 				name = "No Keycard",
 				id = "translation_no_keycard",
 				desc = "Text shown to the player whose access was denied because he doesn't have a keycard",
-				default = "You don't have any keycard to pass!",
+				default = "Du hast nicht die passende Keycard um zu passieren!",
 			},
 			{
 				type = "String",
@@ -161,7 +161,7 @@ function MODULE:init()
 	if file.Exists( path, "DATA" ) then
 		guthscp.data.move_file( path, self.path )
 	end
-
+	
 	timer.Simple( 0, function()
 		--  warn for old version
 		if GuthSCP and GuthSCP.registerKeycardSWEP then

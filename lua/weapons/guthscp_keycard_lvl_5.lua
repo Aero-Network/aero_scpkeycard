@@ -15,7 +15,7 @@ SWEP.Spawnable = true
 SWEP.GuthSCPLVL = 5
 
 --  renderer settings (comment code below using '--[[' (at the beginning) and ']]' (at the end) if you don't want to use custom models)
---[[ 
+
 SWEP.GuthSCPRenderer = {
     --  World Model is a 3D model shown either in 3rd person or when looking to an other player 
     world_model = {
@@ -46,13 +46,13 @@ SWEP.GuthSCPRenderer = {
         use_hands = true, --  if hands should be drawn
         --  SWEP:Construction Kit's renderer allow to render additional models without these models being weapon models
         swep_ck = {
-            enabled = false,
+            enabled = true,
 
             --  commenting options below will revert the values to base weapon values
             bone = "ValveBiped.Bip01_R_Finger0", --  bone attachment
-            pos = Vector( 4, -1, -0.519 ),
+            pos = Vector( -11, -5, -2 ),
             angle = Angle( -8.183, -10.52, -99.351 ),
-            size = Vector( 0.625, 0.625, 0.625 ),
+            size = Vector( 0.9, 0.9, 0.9 ),
 
             --  optionals options (to uncomment)
             --rel = "",
@@ -63,7 +63,7 @@ SWEP.GuthSCPRenderer = {
         },
     },
 } 
-]]
+
 
 --  register swep
 guthscp.modules.guthscpkeycard.register_keycard_swep( SWEP )
